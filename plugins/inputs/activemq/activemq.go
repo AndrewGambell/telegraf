@@ -27,9 +27,14 @@ type ActiveMQ struct {
 	ResponseTimeout internal.Duration `toml:"response_timeout"`
 	tls.ClientConfig
 
+<<<<<<< HEAD
 	client      *http.Client
 	baseURL     *url.URL
 	initialized bool
+=======
+	client  *http.Client
+	baseURL *url.URL
+>>>>>>> be7c71a39bd07a97303daf52a4abb5c9529f3d27
 }
 
 type Topics struct {
@@ -249,11 +254,14 @@ func (a *ActiveMQ) GatherSubscribersMetrics(acc telegraf.Accumulator, subscriber
 }
 
 func (a *ActiveMQ) Gather(acc telegraf.Accumulator) error {
+<<<<<<< HEAD
 	if !a.initialized {
 		a.Init()
 		a.initialized = true
 	}
 
+=======
+>>>>>>> be7c71a39bd07a97303daf52a4abb5c9529f3d27
 	dataQueues, err := a.GetMetrics(a.QueuesURL())
 	if err != nil {
 		return err
